@@ -11,9 +11,10 @@ import com.robertramirez.springapp.bean.BeanInterfaceImpl;
 import com.robertramirez.springapp.bean.SampleBean;
 
 @Configuration
-@ComponentScans(
-    @ComponentScan(basePackages = "com.robertramirez.springapp")
-)
+@ComponentScans({
+    @ComponentScan(basePackages = "com.robertramirez.springapp"),
+    @ComponentScan(basePackageClasses = AppConfig.class)
+})
 public class AppConfig {
     @Bean(initMethod = "init", destroyMethod = "destroy", name = { "sampleBean", "sb" })
     @Description("Demonstrate a simple bean")
