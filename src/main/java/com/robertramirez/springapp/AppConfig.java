@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
+import org.springframework.context.annotation.PropertySource;
 
 import com.robertramirez.springapp.bean.BeanInterface;
 import com.robertramirez.springapp.bean.BeanInterfaceImpl;
@@ -15,6 +16,7 @@ import com.robertramirez.springapp.bean.SampleBean;
     @ComponentScan(basePackages = "com.robertramirez.springapp"),
     @ComponentScan(basePackageClasses = AppConfig.class)
 })
+@PropertySource("classpath:application.properties")
 public class AppConfig {
     @Bean(initMethod = "init", destroyMethod = "destroy", name = { "sampleBean", "sb" })
     @Description("Demonstrate a simple bean")
